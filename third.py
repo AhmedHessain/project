@@ -181,7 +181,7 @@ class Ui_Form_5(object):
                         host='localhost',
                         user='root',
                         password='',
-                        database='الرغبة الاولى')
+                        database='الرغبة الثالثة')
                 cursor = mydb.cursor()
                 name=self.lineEdit_13.text()
                 email=self.lineEdit_14.text()
@@ -198,7 +198,7 @@ class Ui_Form_5(object):
                         host='localhost',
                         user='root',
                         password='',
-                        database='الرغبة الاولى')
+                        database='الرغبة الثالثة')
                 cursor = mydb.cursor()
                 name=self.lineEdit_13.text()
                 email=self.lineEdit_14.text()
@@ -215,7 +215,7 @@ class Ui_Form_5(object):
                         host='localhost',
                         user='root',
                         password='',
-                        database='الرغبة الاولى')
+                        database='الرغبة الثالثة')
                 cursor = mydb.cursor()
                 name=self.lineEdit_13.text()
                 email=self.lineEdit_14.text()
@@ -232,7 +232,7 @@ class Ui_Form_5(object):
                         host='localhost',
                         user='root',
                         password='',
-                        database='الرغبة الاولى')
+                        database='الرغبة الثالثة')
                 cursor = mydb.cursor()
                 name=self.lineEdit_13.text()
                 email=self.lineEdit_14.text()

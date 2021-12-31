@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import mysql.connector as mc
+from PyQt5.QtWidgets import QTableWidgetItem
 
 
 class Ui_Form_14(object):
@@ -111,6 +113,10 @@ class Ui_Form_14(object):
         self.pushButton_46.setObjectName("pushButton_46")
 
         self.retranslateUi(Form_14)
+        self.pushButton_44.clicked.connect(self.gettingCs)
+        self.pushButton_45.clicked.connect(self.gettingSe)
+        self.pushButton_46.clicked.connect(self.gettingIt)
+        self.pushButton_47.clicked.connect(self.gettingIs)
         QtCore.QMetaObject.connectSlotsByName(Form_14)
 
     def retranslateUi(self, Form_14):
@@ -125,7 +131,62 @@ class Ui_Form_14(object):
         self.pushButton_45.setText(_translate("Form_14", "عرض "))
         self.pushButton_47.setText(_translate("Form_14", "عرض "))
         self.pushButton_46.setText(_translate("Form_14", "عرض "))
-
+    def gettingCs(self):
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM cs")
+                result = cursor.fetchall()
+                self.tableWidget_13.setRowCount(0)
+                for row_number, row_data in enumerate(result):
+                        self.tableWidget_13.insertRow(row_number)
+                        for column_number, data in enumerate(row_data):
+                                self.tableWidget_13.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+    def gettingIs(self):
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM iss")
+                result = cursor.fetchall()
+                self.tableWidget_16.setRowCount(0)
+                for row_number, row_data in enumerate(result):
+                        self.tableWidget_16.insertRow(row_number)
+                        for column_number, data in enumerate(row_data):
+                                self.tableWidget_16.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+    def gettingIt(self):
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM it")
+                result = cursor.fetchall()
+                self.tableWidget_15.setRowCount(0)
+                for row_number, row_data in enumerate(result):
+                        self.tableWidget_15.insertRow(row_number)
+                        for column_number, data in enumerate(row_data):
+                                self.tableWidget_15.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+    def gettingSe(self):
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM se")
+                result = cursor.fetchall()
+                self.tableWidget_14.setRowCount(0)
+                for row_number, row_data in enumerate(result):
+                        self.tableWidget_14.insertRow(row_number)
+                        for column_number, data in enumerate(row_data):
+                                self.tableWidget_14.setItem(row_number, column_number, QTableWidgetItem(str(data)))
 
 if __name__ == "__main__":
     import sys
