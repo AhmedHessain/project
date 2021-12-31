@@ -138,7 +138,7 @@ class Ui_Form_14(object):
                                 password='',
                                 database='الرغبة الرابعة')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM cs")
+                cursor.execute("SELECT * FROM cs ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_13.setRowCount(0)
                 for row_number, row_data in enumerate(result):
@@ -152,7 +152,7 @@ class Ui_Form_14(object):
                                 password='',
                                 database='الرغبة الرابعة')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM iss")
+                cursor.execute("SELECT * FROM iss ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_16.setRowCount(0)
                 for row_number, row_data in enumerate(result):
@@ -166,7 +166,7 @@ class Ui_Form_14(object):
                                 password='',
                                 database='الرغبة الرابعة')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM it")
+                cursor.execute("SELECT * FROM it ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_15.setRowCount(0)
                 for row_number, row_data in enumerate(result):
@@ -180,7 +180,7 @@ class Ui_Form_14(object):
                                 password='',
                                 database='الرغبة الرابعة')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM se")
+                cursor.execute("SELECT * FROM se ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_14.setRowCount(0)
                 for row_number, row_data in enumerate(result):

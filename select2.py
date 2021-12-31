@@ -138,13 +138,13 @@ class Ui_Form_11(object):
                                 password='',
                                 database='الرغبة الثانية')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM cs")
+                cursor.execute("SELECT * FROM cs ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget.setRowCount(0)
                 for row_number, row_data in enumerate(result):
                         self.tableWidget.insertRow(row_number)
                         for column_number, data in enumerate(row_data):
-                                self.tableWidget.setItem(row_number, column_number, QTableWidgetItem(str(data)))    
+                                self.tableWidget.setItem(row_number, column_number, QTableWidgetItem(str(data)))
     def gettingIs(self):
                 mydb=mc.connect(
                                 host='localhost',
@@ -152,7 +152,7 @@ class Ui_Form_11(object):
                                 password='',
                                 database='الرغبة الثانية')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM iss")
+                cursor.execute("SELECT * FROM iss ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_4.setRowCount(0)
                 for row_number, row_data in enumerate(result):
@@ -166,7 +166,7 @@ class Ui_Form_11(object):
                                 password='',
                                 database='الرغبة الثانية')    
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM it")
+                cursor.execute("SELECT * FROM it ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_3.setRowCount(0)
                 for row_number, row_data in enumerate(result):
@@ -180,7 +180,7 @@ class Ui_Form_11(object):
                                 password='',
                                 database='الرغبة الثانية')
                 cursor = mydb.cursor()
-                cursor.execute("SELECT * FROM se")
+                cursor.execute("SELECT * FROM se ORDER BY GPA DESC LIMIT 4")
                 result = cursor.fetchall()
                 self.tableWidget_2.setRowCount(0)
                 for row_number, row_data in enumerate(result):
