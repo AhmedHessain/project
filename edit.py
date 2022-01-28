@@ -9,118 +9,757 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import mysql.connector as mc
+from PyQt5.QtWidgets import QTableWidgetItem
 
 class Ui_Form_7(object):
-    def setupUi(self, Form_7):
-        Form_7.setObjectName("Form_7")
-        Form_7.resize(969, 817)
-        self.label_1 = QtWidgets.QLabel(Form_7)
-        self.label_1.setGeometry(QtCore.QRect(-180, 10, 851, 91))
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_1.setFont(font)
-        self.label_1.setStyleSheet("Color: rgba(0, 83, 139, 1)\n"
-"")
-        self.label_1.setObjectName("label_1")
-        self.label = QtWidgets.QLabel(Form_7)
-        self.label.setGeometry(QtCore.QRect(90, 140, 181, 31))
-        self.label.setObjectName("label")
-        self.lineEdit_25 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_25.setGeometry(QtCore.QRect(290, 140, 321, 31))
-        self.lineEdit_25.setObjectName("lineEdit_25")
-        self.pushButton_31 = QtWidgets.QPushButton(Form_7)
-        self.pushButton_31.setGeometry(QtCore.QRect(660, 140, 131, 28))
-        self.pushButton_31.setObjectName("pushButton_31")
-        self.lineEdit_26 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_26.setGeometry(QtCore.QRect(290, 240, 321, 31))
-        self.lineEdit_26.setObjectName("lineEdit_26")
-        self.lineEdit_27 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_27.setGeometry(QtCore.QRect(290, 290, 321, 31))
-        self.lineEdit_27.setObjectName("lineEdit_27")
-        self.lineEdit_28 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_28.setGeometry(QtCore.QRect(290, 340, 321, 31))
-        self.lineEdit_28.setObjectName("lineEdit_28")
-        self.lineEdit_29 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_29.setGeometry(QtCore.QRect(290, 390, 321, 31))
-        self.lineEdit_29.setObjectName("lineEdit_29")
-        self.lineEdit_30 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_30.setGeometry(QtCore.QRect(290, 450, 321, 31))
-        self.lineEdit_30.setObjectName("lineEdit_30")
-        self.lineEdit_31 = QtWidgets.QLineEdit(Form_7)
-        self.lineEdit_31.setGeometry(QtCore.QRect(290, 500, 321, 31))
-        self.lineEdit_31.setObjectName("lineEdit_31")
-        self.label_2 = QtWidgets.QLabel(Form_7)
-        self.label_2.setGeometry(QtCore.QRect(640, 240, 181, 31))
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(Form_7)
-        self.label_3.setGeometry(QtCore.QRect(640, 290, 181, 31))
-        self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(Form_7)
-        self.label_4.setGeometry(QtCore.QRect(640, 340, 181, 31))
-        self.label_4.setObjectName("label_4")
-        self.label_5 = QtWidgets.QLabel(Form_7)
-        self.label_5.setGeometry(QtCore.QRect(640, 390, 181, 31))
-        self.label_5.setObjectName("label_5")
-        self.label_6 = QtWidgets.QLabel(Form_7)
-        self.label_6.setGeometry(QtCore.QRect(640, 440, 181, 31))
-        self.label_6.setObjectName("label_6")
-        self.label_7 = QtWidgets.QLabel(Form_7)
-        self.label_7.setGeometry(QtCore.QRect(640, 500, 181, 31))
-        self.label_7.setObjectName("label_7")
-        self.label_8 = QtWidgets.QLabel(Form_7)
-        self.label_8.setGeometry(QtCore.QRect(90, 240, 181, 31))
-        self.label_8.setObjectName("label_8")
-        self.label_9 = QtWidgets.QLabel(Form_7)
-        self.label_9.setGeometry(QtCore.QRect(90, 290, 181, 31))
-        self.label_9.setObjectName("label_9")
-        self.label_10 = QtWidgets.QLabel(Form_7)
-        self.label_10.setGeometry(QtCore.QRect(80, 340, 181, 31))
-        self.label_10.setObjectName("label_10")
-        self.label_11 = QtWidgets.QLabel(Form_7)
-        self.label_11.setGeometry(QtCore.QRect(90, 390, 181, 31))
-        self.label_11.setObjectName("label_11")
-        self.label_12 = QtWidgets.QLabel(Form_7)
-        self.label_12.setGeometry(QtCore.QRect(90, 450, 181, 31))
-        self.label_12.setObjectName("label_12")
-        self.label_13 = QtWidgets.QLabel(Form_7)
-        self.label_13.setGeometry(QtCore.QRect(90, 500, 181, 31))
-        self.label_13.setObjectName("label_13")
-        self.pushButton_32 = QtWidgets.QPushButton(Form_7)
-        self.pushButton_32.setGeometry(QtCore.QRect(360, 600, 231, 81))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_32.setFont(font)
-        self.pushButton_32.setObjectName("pushButton_32")
+        def setupUi(self, Form_7):
+            Form_7.setObjectName("Form_7")
+            Form_7.resize(969, 817)
+            self.label_1 = QtWidgets.QLabel(Form_7)
+            self.label_1.setGeometry(QtCore.QRect(-180, 10, 851, 91))
+            font = QtGui.QFont()
+            font.setPointSize(24)
+            font.setBold(True)
+            font.setWeight(75)
+            self.label_1.setFont(font)
+            self.label_1.setStyleSheet("Color: rgba(0, 83, 139, 1)\n"
+    "")
+            self.label_1.setObjectName("label_1")
+            self.label = QtWidgets.QLabel(Form_7)
+            self.label.setGeometry(QtCore.QRect(90, 140, 181, 31))
+            self.label.setObjectName("label")
+            self.lineEdit_25 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_25.setGeometry(QtCore.QRect(290, 140, 321, 31))
+            self.lineEdit_25.setObjectName("lineEdit_25")
+            self.pushButton_31 = QtWidgets.QPushButton(Form_7)
+            self.pushButton_31.setGeometry(QtCore.QRect(660, 140, 131, 28))
+            self.pushButton_31.setObjectName("pushButton_31")
+            self.lineEdit_26 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_26.setGeometry(QtCore.QRect(290, 240, 321, 31))
+            self.lineEdit_26.setObjectName("lineEdit_26")
+            self.lineEdit_27 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_27.setGeometry(QtCore.QRect(290, 290, 321, 31))
+            self.lineEdit_27.setObjectName("lineEdit_27")
+            self.lineEdit_28 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_28.setGeometry(QtCore.QRect(290, 340, 321, 31))
+            self.lineEdit_28.setObjectName("lineEdit_28")
+            self.lineEdit_29 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_29.setGeometry(QtCore.QRect(290, 390, 321, 31))
+            self.lineEdit_29.setObjectName("lineEdit_29")
+            self.lineEdit_30 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_30.setGeometry(QtCore.QRect(290, 450, 321, 31))
+            self.lineEdit_30.setObjectName("lineEdit_30")
+            self.lineEdit_31 = QtWidgets.QLineEdit(Form_7)
+            self.lineEdit_31.setGeometry(QtCore.QRect(290, 500, 321, 31))
+            self.lineEdit_31.setObjectName("lineEdit_31")
+            self.label_2 = QtWidgets.QLabel(Form_7)
+            self.label_2.setGeometry(QtCore.QRect(640, 240, 181, 31))
+            self.label_2.setObjectName("label_2")
+            self.label_3 = QtWidgets.QLabel(Form_7)
+            self.label_3.setGeometry(QtCore.QRect(640, 290, 181, 31))
+            self.label_3.setObjectName("label_3")
+            self.label_4 = QtWidgets.QLabel(Form_7)
+            self.label_4.setGeometry(QtCore.QRect(640, 340, 181, 31))
+            self.label_4.setObjectName("label_4")
+            self.label_5 = QtWidgets.QLabel(Form_7)
+            self.label_5.setGeometry(QtCore.QRect(640, 390, 181, 31))
+            self.label_5.setObjectName("label_5")
+            self.label_6 = QtWidgets.QLabel(Form_7)
+            self.label_6.setGeometry(QtCore.QRect(640, 440, 181, 31))
+            self.label_6.setObjectName("label_6")
+            self.label_7 = QtWidgets.QLabel(Form_7)
+            self.label_7.setGeometry(QtCore.QRect(640, 500, 181, 31))
+            self.label_7.setObjectName("label_7")
+            self.label_8 = QtWidgets.QLabel(Form_7)
+            self.label_8.setGeometry(QtCore.QRect(90, 240, 181, 31))
+            self.label_8.setObjectName("label_8")
+            self.label_9 = QtWidgets.QLabel(Form_7)
+            self.label_9.setGeometry(QtCore.QRect(90, 290, 181, 31))
+            self.label_9.setObjectName("label_9")
+            self.label_10 = QtWidgets.QLabel(Form_7)
+            self.label_10.setGeometry(QtCore.QRect(80, 340, 181, 31))
+            self.label_10.setObjectName("label_10")
+            self.label_11 = QtWidgets.QLabel(Form_7)
+            self.label_11.setGeometry(QtCore.QRect(90, 390, 181, 31))
+            self.label_11.setObjectName("label_11")
+            self.label_12 = QtWidgets.QLabel(Form_7)
+            self.label_12.setGeometry(QtCore.QRect(90, 450, 181, 31))
+            self.label_12.setObjectName("label_12")
+            self.label_13 = QtWidgets.QLabel(Form_7)
+            self.label_13.setGeometry(QtCore.QRect(90, 500, 181, 31))
+            self.label_13.setObjectName("label_13")
+            self.pushButton_32 = QtWidgets.QPushButton(Form_7)
+            self.pushButton_32.setGeometry(QtCore.QRect(360, 600, 231, 81))
+            font = QtGui.QFont()
+            font.setPointSize(16)
+            font.setBold(True)
+            font.setWeight(75)
+            self.pushButton_32.setFont(font)
+            self.pushButton_32.setObjectName("pushButton_32")
 
-        self.retranslateUi(Form_7)
-        QtCore.QMetaObject.connectSlotsByName(Form_7)
+            self.retranslateUi(Form_7)
+            QtCore.QMetaObject.connectSlotsByName(Form_7)
 
-    def retranslateUi(self, Form_7):
-        _translate = QtCore.QCoreApplication.translate
-        Form_7.setWindowTitle(_translate("Form_7", "Form"))
-        self.label_1.setText(_translate("Form_7", "تعديل البيانات"))
-        self.label.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\"> ID بحث بال</span></p></body></html>"))
-        self.pushButton_31.setText(_translate("Form_7", "بحث"))
-        self.label_2.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
-        self.label_3.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
-        self.label_4.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
-        self.label_5.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
-        self.label_6.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
-        self.label_7.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
-        self.label_8.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Name</span></p></body></html>"))
-        self.label_9.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">email</span></p></body></html>"))
-        self.label_10.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">address</span></p></body></html>"))
-        self.label_11.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">phone</span></p></body></html>"))
-        self.label_12.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">age</span></p></body></html>"))
-        self.label_13.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">GPA</span></p></body></html>"))
-        self.pushButton_32.setText(_translate("Form_7", "تعديل"))
-
-
+        def retranslateUi(self, Form_7):
+            _translate = QtCore.QCoreApplication.translate
+            Form_7.setWindowTitle(_translate("Form_7", "Form"))
+            self.label_1.setText(_translate("Form_7", "تعديل البيانات"))
+            self.label.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\"> ID بحث بال</span></p></body></html>"))
+            self.pushButton_31.setText(_translate("Form_7", "بحث"))
+            self.label_2.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
+            self.label_3.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
+            self.label_4.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
+            self.label_5.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
+            self.label_6.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
+            self.label_7.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">0</span></p></body></html>"))
+            self.label_8.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Name</span></p></body></html>"))
+            self.label_9.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">email</span></p></body></html>"))
+            self.label_10.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">address</span></p></body></html>"))
+            self.label_11.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">phone</span></p></body></html>"))
+            self.label_12.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">age</span></p></body></html>"))
+            self.label_13.setText(_translate("Form_7", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">GPA</span></p></body></html>"))
+            self.pushButton_32.setText(_translate("Form_7", "تعديل"))
+            self.pushButton_31.clicked.connect(self.gettingCs)
+            self.pushButton_32.clicked.connect(self.editCs)
+            self.pushButton_31.clicked.connect(self.gettingIs)
+            self.pushButton_32.clicked.connect(self.editIs)
+            self.pushButton_31.clicked.connect(self.gettingSe)
+            self.pushButton_32.clicked.connect(self.editSe)
+            self.pushButton_31.clicked.connect(self.gettingIt)
+            self.pushButton_32.clicked.connect(self.editIt)
+            self.pushButton_31.clicked.connect(self.gettingCs2)
+            self.pushButton_32.clicked.connect(self.editCs2)
+            self.pushButton_31.clicked.connect(self.gettingIs2)
+            self.pushButton_32.clicked.connect(self.editIs2)
+            self.pushButton_31.clicked.connect(self.gettingSe2)
+            self.pushButton_32.clicked.connect(self.editSe2)
+            self.pushButton_31.clicked.connect(self.gettingIt2)
+            self.pushButton_32.clicked.connect(self.editIt2)
+            self.pushButton_31.clicked.connect(self.gettingCs3)
+            self.pushButton_32.clicked.connect(self.editCs3)
+            self.pushButton_31.clicked.connect(self.gettingIs3)
+            self.pushButton_32.clicked.connect(self.editIs3)
+            self.pushButton_31.clicked.connect(self.gettingSe3)
+            self.pushButton_32.clicked.connect(self.editSe3)
+            self.pushButton_31.clicked.connect(self.gettingIt3)
+            self.pushButton_32.clicked.connect(self.editIt3)
+            self.pushButton_31.clicked.connect(self.gettingCs4)
+            self.pushButton_32.clicked.connect(self.editCs4)
+            self.pushButton_31.clicked.connect(self.gettingIs4)
+            self.pushButton_32.clicked.connect(self.editIs4)
+            self.pushButton_31.clicked.connect(self.gettingSe4)
+            self.pushButton_32.clicked.connect(self.editSe4)
+            self.pushButton_31.clicked.connect(self.gettingIt4)
+            self.pushButton_32.clicked.connect(self.editIt4)
+        def gettingCs(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 500 and i_d >= 1:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM cs WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editCs(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 500 and i_d >= 1:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE cs SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIs(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d >= 500 and i_d <100:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM iss WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIs(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d >= 500 and i_d <100:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE iss SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIt(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 1500 and i_d >= 1000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM it WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIt(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 1500 and i_d >= 1000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE it SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingSe(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 2000 and i_d >=1500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM se WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editSe(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 2000 and i_d >=1500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE se SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingCs2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 2500 and i_d >= 2000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM cs WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editCs2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 2500 and i_d >= 2000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE cs SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIs2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d >= 3000 and i_d <2500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM iss WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIs2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d >= 3000 and i_d <2500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE iss SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIt2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d >= 3500 and i_d <3000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM it WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIt2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d >= 3500 and i_d <3000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE it SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingSe2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 4000 and i_d >=3500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثانية')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM se WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editSe2(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 4000 and i_d >=3500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الاولى')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE se SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingCs3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 4500 and i_d >= 4000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM cs WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editCs3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 4500 and i_d >= 4000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE cs SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIs3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 5000 and i_d >=4500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM iss WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIs3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 5000 and i_d >=4500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE iss SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIt3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 5500 and i_d >=5000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM it WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIt3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 5500 and i_d >=5000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE it SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingSe3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 6000 and i_d >=5500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM se WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editSe3(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 6000 and i_d >=5500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الثالثة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE se SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingCs4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 6500 and i_d >= 6000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM cs WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editCs4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 6500 and i_d >= 6000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE cs SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIs4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 7000 and i_d >=6500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM iss WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIs4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 7000 and i_d >=6500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE iss SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingIt4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 7500 and i_d >=7000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM it WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editIt4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 7500 and i_d >=7000:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE it SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
+        def gettingSe4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 8000 and i_d >=7500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                cursor.execute("SELECT * FROM se WHERE id ={}".format(i_d))
+                result = cursor.fetchall()
+                for i in result:
+                    self.lineEdit_26.setText('{}'.format(i[0]))
+                    self.lineEdit_27.setText('{}'.format(i[1]))
+                    self.lineEdit_28.setText('{}'.format(i[2]))
+                    self.lineEdit_29.setText('{}'.format(i[3]))
+                    self.lineEdit_30.setText('{}'.format(i[4]))
+                    self.lineEdit_31.setText('{}'.format(i[5]))
+            else:
+                pass
+        def editSe4(self):
+            i_d=int(self.lineEdit_25.text())
+            if i_d < 8000 and i_d >=7500:
+                mydb=mc.connect(
+                                host='localhost',
+                                user='root',
+                                password='',
+                                database='الرغبة الرابعة')
+                cursor = mydb.cursor()
+                updatedname=self.lineEdit_26.text()
+                updatedmail=self.lineEdit_27.text()
+                updatedaddress=self.lineEdit_28.text()
+                updatedphone=self.lineEdit_29.text()
+                updatedage=self.lineEdit_30.text()
+                updatedGPA=self.lineEdit_31.text()
+                update = "UPDATE se SET name='{}',email='{}',address='{}',phone='{}',age='{}',GPA='{}' WHERE id={}".format(updatedname,updatedmail,updatedaddress,updatedphone,updatedage,updatedGPA,i_d)
+                cursor.execute(update)
+                mydb.commit()
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
